@@ -19,9 +19,16 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from forumXO.views import list_question,detail_question
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('question/',list_question),
+    path('questions/<int:id>',detail_question),
+
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
