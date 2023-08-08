@@ -18,6 +18,7 @@
 #create function based view for crud operation
 #create file templates and create folder name the same of app
 #Crud Operation in views
+#pip freeze >requirements.txt
 
 
 
