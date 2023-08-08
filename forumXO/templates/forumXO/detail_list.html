@@ -6,3 +6,15 @@
 
 
 <hr>
+
+
+
+<h4>Answers</h4>
+
+<ul>
+
+    {% for object in question.Answer_question.all %}
+       <li>{{object.author}} - {{object.answer}} - {{object.created_at}}</li>
+
+    {% endfor %}
+</ul>

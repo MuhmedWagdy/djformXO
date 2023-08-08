@@ -19,7 +19,8 @@ def list_question(request):
 def detail_question(request,id):
     
     question= Question.objects.get(id=id)
-    return render (request,'forumXO/detail_list.html',{'question':question})
+    
+    return render(request,'forumXO/detail_list.html',{'question':question})
 
 
 
