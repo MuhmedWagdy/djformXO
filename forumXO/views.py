@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 from .models import Question,Answer
-
+from .forms import AnswerForm
 
 
 
@@ -19,8 +19,22 @@ def list_question(request):
 def detail_question(request,id):
     
     question= Question.objects.get(id=id)
-    
-    return render(request,'forumXO/detail_list.html',{'question':question})
+
+
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+
+        if form.is_valid():
+            myform = form.save(commit=False)
+            myform.author = request.user
+            myform.question= question
+            myform.save() 
+    else:
+        form =AnswerForm()
+
+
+        
+    return render(request,'forumXO/detail_list.html',{'question':question,'form':form})
 
 
 

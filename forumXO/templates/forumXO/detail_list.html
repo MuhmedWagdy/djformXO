@@ -9,12 +9,21 @@
 
 
 
-<h4>Answers</h4>
+<h4>( {{question.answer_question.all|length}}) Answers</h4>
 
 <ul>
 
-    {% for object in question.Answer_question.all %}
+    {% for object in question.answer_question.all %}
        <li>{{object.author}} - {{object.answer}} - {{object.created_at}}</li>
 
     {% endfor %}
 </ul>
+
+
+<h4>Add New Answer</h4>
+<form method="post">
+    {% csrf_token %}
+
+      {{form}}
+    <input type="submit" value="add Answer">
+</form>

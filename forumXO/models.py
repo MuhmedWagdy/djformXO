@@ -29,6 +29,6 @@ class Question(models.Model):
 
 class Answer (models.Model):
     author =  models.ForeignKey(User,related_name='answer_author',on_delete=models.CASCADE)
-    answer = models.ForeignKey(Question,related_name='Answer_question',on_delete=models.CASCADE)
+    answer = models.ForeignKey(Question,related_name='answer_question',on_delete=models.CASCADE)
     question =models.CharField(max_length=1000)
     created_at = models.DateTimeField(default=timezone.now)
